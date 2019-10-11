@@ -4,7 +4,12 @@ class Map
     end
 
     def set(key, value)
-        storage << [key, value] if storage.none? { |slot| slot.first == key }
+        existing_slot = storage.find { |slot| slot.first == key }
+        if existing_slot != nil
+            existing_slot[1] = value
+        else
+            storage << [key, value]
+        end
     end
 
     def get(key)
@@ -22,9 +27,14 @@ class Map
     end
 
     def show
-        storage.to_h
+        # storage.to_h
+        deep_dup(storage)
     end
 
     private
     attr_reader :storage
+
+    def deep_dup(arr)
+        arr.map { |el| el.is_a?(Array) ? deep_dup(el) : el }
+    end
 end
