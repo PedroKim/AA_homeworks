@@ -12,7 +12,7 @@ class Queue
     end
 
     def peek
-        ivar[-1]
+        ivar.first
     end
     
     private
