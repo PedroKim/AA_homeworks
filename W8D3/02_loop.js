@@ -1,8 +1,8 @@
 function fizzBuzz(arr) {
   let newArr = [];
   arr.forEach(el => {
-    if ( (el % 3 == 0 || el % 5 == 0) 
-          && !(el % 3 == 0 && el % 5 == 0) ) {
+    if ( (el % 3 === 0 || el % 5 === 0) 
+          && !(el % 3 === 0 && el % 5 === 0) ) {
       newArr.push(el);
     }
   });
@@ -14,7 +14,7 @@ console.log(fizzBuzz([3, 5, 6, 9, 10, 12, 15, 30]));
 let isPrime = (num) => {
   if (num < 2) return false;
   for (let i = 2; i < num; i++) {
-    if (num % i == 0) return false;
+    if (num % i === 0) return false;
   }
   return true;
 }
